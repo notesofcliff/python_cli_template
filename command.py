@@ -116,7 +116,11 @@ def main(argv):
     * Call the function `_main` which should hold the application logic
     * return the return code as determined by function `_main`
     """
-    args = parse_args(argv)
+    try:
+        args = parse_args(argv)
+    except Exception as exception:
+        log.critical(f"An unhandled exception has occurred: {exception}")
+        return RETURN_CODES["UNHANDLED_EXCEPTION"]
     configure_logging(args.verbose, args.log_file)
     log = logging.getLogger(__name__)
     log.debug(f"Received args: {args}")
