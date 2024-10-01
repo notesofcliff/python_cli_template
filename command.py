@@ -116,6 +116,7 @@ def main(argv):
     * Call the function `_main` which should hold the application logic
     * return the return code as determined by function `_main`
     """
+    log = logging.getLogger(__name__)
     try:
         args = parse_args(argv)
     except Exception as exception:
